@@ -25,7 +25,32 @@ it("should say hello", function() {
 // 4. Finally see if you would like to refactor your code at all.
 // This is called "Red-Green-Refactor"
 // ========================================================
+it("should do something that you want done", function() {
+  const dog = utils.doggo()
+  expect(dog).to.be.a("string")
+})
 
+it("Area should return the area of a rectangle.", function() {
+  const rectArea = utils.area(2, 3)
+  expect(rectArea).to.equal(6)
+})
+
+it("Perimeter should return the perimeter of a rectangle.", function() {
+  const rectPerim = utils.perimeter(2, 3) // 2 * 2 + 2 * 3
+  expect(rectPerim).to.equal(10)
+})
+
+it("Should return the area of a circle with radius.", function() {
+  const circleArea = utils.circleArea(5)
+  expect(circleArea).to.equal(Math.PI * 5**2)
+})
+
+it("Stretch: Test that any negative widths, breadths, or radii return null", function() {
+  const checkNegativeFail = utils.checkNeg(-6)
+  expect(checkNegativeFail).to.be.null
+  const checkNegativePass = utils.checkNeg(4)
+  expect(checkNegativePass).to.equal(4)
+})
 
 
 
@@ -50,7 +75,11 @@ it("Should create a new (object) Item with name and price", function() {
   expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart")
+it("Should return an array containing all items in cart"), function() {
+  const myCart = utils.shoppingCart()
+  expect(myCart).to.be.a("array")
+
+}
 
 it("Should add a new item to the shopping cart")
 
