@@ -48,19 +48,23 @@ const createItem = (name, price) => {
 
 const getShoppingCart = () => {
   // should return the current state of shopping cart
-  return shoppingCart()
+  return shoppingCart
 }
 
 const addItemToCart = (item) => {
   // should add item to shopping cart
+  return shoppingCart.push(item)
 }
 
 const getNumItemsInCart = () => {
   // should return the total quantity of items in cart
+  return shoppingCart.length
 }
 
 const removeItemFromCart = (item) => {
   // should remove item from shopping cart
+  return shoppingCart.splice(shoppingCart.indexOf(item), 1) //removes first occurance 
+  // shoppingCart = shoppingCart.filter((itemInCart)=>itemInCart.name !== item.name) // receiving Assignment to constant variable error
 }
 
 module.exports = {

@@ -68,24 +68,53 @@ beforeEach((done) => {
 })
 
 it("Should create a new (object) Item with name and price", function() {
+    // Create a new item and assign it to a variable so we can use it
   const item = utils.createItem("apple", 0.99)
+    // Check that the item was created
   expect(item).to.be.a("object")
   expect(item).to.have.property("name", "apple")
   expect(item).to.have.property("price", 0.99)
   expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart"), function() {
-  const myCart = utils.shoppingCart()
-  expect(myCart).to.be.a("array")
+it("Should return an array containing all items in cart", function() {
+    // Create new item by assigning it to a variable
+  const item = utils.createItem("apple", 0.99)
+    // Add item cart
+  utils.addItemToCart(item)
+    // Store the shoppingCart array in a variable so we can use it
+  const itemsInCart = utils.getShoppingCart()
+    // Check that the shopping cart
+  expect(itemsInCart[0]).to.have.property("name", "apple")
+})
 
-}
+it("Should add a new item to the shopping cart", function() {
+    // Check that cart is empty
+  const cartLength = utils.getNumItemsInCart()
+  expect(cartLength).to.equal(0)
+    // Add new item to cart
+  const item = utils.createItem("apple", 0.99)
+  utils.addItemToCart(item)
+    // Check that new item was added
+  expect(item).to.be.a("object")
+  expect(item).to.have.property("name", "apple")
+  expect(item).to.have.property("quantity", 1)
+})
 
-it("Should add a new item to the shopping cart")
+it("Should return the number of items in the cart", function() {
+  const createdItem = utils.createItem("apple", 0.99)
+  utils.addItemToCart(createdItem)
+  // const cartItems = utils.getNumItemsInCart() // If I want to assign the cart to a variable
+  expect(utils.getNumItemsInCart()).to.equal(1)
+})
 
-it("Should return the number of items in the cart")
-
-it("Should remove items from cart")
+it("Should remove items from cart", function() {
+  const createdItem = utils.createItem("apple", 0.99)
+  utils.addItemToCart(createdItem)
+  expect(utils.getNumItemsInCart()).to.equal(1)
+  utils.removeItemFromCart(createdItem)
+  // expect(utils.getShoppingCart()).to.equal(0)
+})
 
 // ========================================================
 // Stretch Challenges
